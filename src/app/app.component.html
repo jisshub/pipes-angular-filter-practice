@@ -1,14 +1,19 @@
 <div class="container mt-4 pt-4">
   <div class="row">
     <div class="col-md-8">
-      <ul class="list-group">
-        <li class="list-group-item" *ngFor="let phone of smartphones">
-          <span>{{ phone.name }}</span>
+      <input type="text" name="brand" id="brand" [(ngModel)]="brandSearch" />
+      <hr />
+      <ul class="list-group mt-4">
+        <li
+          class="list-group-item"
+          *ngFor="let phone of smartphones | filter: brandSearch:'brand'"
+        >
+          <span class="text-primary">{{ phone.name | shorten: 10 }}</span>
           <strong class="pl-4">{{ phone.brand }}</strong>
           <strong class="pl-4">{{ phone.ram }}</strong>
-          <strong class="pl-4">{{ phone.battery }}</strong>
+          <strong class="pl-4">{{ phone.battery | shorten: 4 }}</strong>
           <strong class="pl-4">{{ phone.processor }}</strong>
-          <strong class="pl-4">{{ phone.os }}</strong>
+          <strong class="pl-4">{{ phone.os | uppercase }}</strong>
         </li>
       </ul>
     </div>

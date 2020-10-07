@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  // declare a property to store inputted value
+  brandSearch = '';
   title = 'pipes-angular-practice-one';
   phone: {
     name: string;
@@ -15,6 +17,7 @@ export class AppComponent {
     battery: string;
     os: string;
   };
+
   smartphones = [
     {
       name: 'Oneplus 7T pro',
